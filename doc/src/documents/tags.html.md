@@ -51,7 +51,8 @@ class MyClass {
   - [@throws](#-throws)
 - [For Member And Variable](#for-member-and-variable)
   - [@type](#-type)
-- [For Virtual](#for-member-and-variable)
+- [For Virtual](#for-virtual)
+  - [@event](#-event)
   - [@external](#-external)
   - [@typedef](#-typedef)
 - [For Test](#for-test)
@@ -450,6 +451,29 @@ class MyClass {
 ----
 
 ## For Virtual
+#### @event
+syntax: ``@event <type> <name>``
+
+About ``<type>`` to see [Type Syntax](#type-syntax)
+
+```javascript
+/**
+ * @event {string} MyEvent
+ */
+```
+
+If ``<type>`` is Object, you can use ``@property <type> <name> [description]`` for each properties.
+
+```javascript
+/**
+ * @event {Object} MyEvent
+ * @property {number} firstPayload - First payload description.
+ * @property {string} secondPayload - Second payload description.
+ */
+```
+
+----
+
 #### @external
 syntax: ``@external <identifier> <URL>``
 
