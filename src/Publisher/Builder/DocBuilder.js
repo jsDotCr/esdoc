@@ -233,6 +233,13 @@ export default class DocBuilder {
       ice.load('variableDoc', this._buildDocLinkHTML(variableDoc.longname));
     });
 
+    // event
+    let eventDocs = this._find({kind: 'event'});
+    ice.drop('eventWrap', !eventDocs.length);
+    ice.loop('eventDoc', eventDocs, (i, eventDoc, ice)=>{
+      ice.load('eventDoc', this._buildDocLinkHTML(eventDoc.longname));
+    });
+
     // typedef
     let typedefDocs = this._find({kind: 'typedef'});
     ice.drop('typedefWrap', !typedefDocs.length);
@@ -555,7 +562,7 @@ export default class DocBuilder {
    */
   _getURL(doc) {
     let inner = false;
-    if (['variable', 'function', 'member', 'typedef', 'method', 'constructor', 'get', 'set'].includes(doc.kind)) {
+    if (['variable', 'function', 'member', 'event', 'typedef', 'method', 'constructor', 'get', 'set'].includes(doc.kind)) {
       inner = true
     }
 
@@ -590,6 +597,8 @@ export default class DocBuilder {
         return this._getOutputFileName(parentDoc);
       case 'external':
         return 'external/index.html';
+      case 'event':
+        return 'event/index.html';
       case 'typedef':
         return 'typedef/index.html';
       case 'class':

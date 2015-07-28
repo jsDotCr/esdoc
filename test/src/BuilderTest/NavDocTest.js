@@ -38,6 +38,14 @@ describe('Nav:', ()=> {
   });
 
   /** @test {DocBuilder#_buildNavDoc} */
+  it('has event nav.', ()=>{
+    find(doc, '[data-ice="nav"] [data-ice="eventWrap"]', (doc)=>{
+      assert.includes(doc, '[data-ice="eventDoc"]:nth-of-type(1)', 'MyInlineEvent1');
+      assert.includes(doc, '[data-ice="eventDoc"]:nth-of-type(1) a', 'event/index.html#static-event-MyInlineEvent1', 'href');
+    });
+  });
+
+  /** @test {DocBuilder#_buildNavDoc} */
   it('has typedef nav.', ()=>{
     find(doc, '[data-ice="nav"] [data-ice="typedefWrap"]', (doc)=>{
       assert.includes(doc, '[data-ice="typedefDoc"]:nth-of-type(1)', 'MyTypedef1');

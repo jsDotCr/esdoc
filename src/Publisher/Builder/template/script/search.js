@@ -24,7 +24,7 @@
     if (text === prevText) return;
     prevText = text;
 
-    var html = {class: [], method: [], member: [], function: [], variable: [], typedef: [], external: [], file: [], test: [], testFile: []};
+    var html = {class: [], method: [], member: [], function: [], variable: [], event: [], typedef: [], external: [], file: [], test: [], testFile: []};
     var len = searchIndex.length;
     var kind;
     for (var i = 0; i < len; i++) {

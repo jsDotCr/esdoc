@@ -8,6 +8,7 @@ import FunctionDoc from '../Doc/FunctionDoc.js';
 import VariableDoc from '../Doc/VariableDoc.js';
 import AssignmentDoc from '../Doc/AssignmentDoc.js';
 import TypedefDoc from '../Doc/TypedefDoc.js';
+import EventDoc from '../Doc/EventDoc.js';
 import ExternalDoc from '../Doc/ExternalDoc.js';
 import ASTUtil from '../Util/ASTUtil.js';
 
@@ -380,6 +381,7 @@ export default class DocFactory {
       case 'Variable': clazz = VariableDoc; break;
       case 'Assignment': clazz = AssignmentDoc; break;
       case 'Typedef': clazz = TypedefDoc; break;
+      case 'Event': clazz = EventDoc; break;
       case 'External': clazz = ExternalDoc; break;
     }
 
@@ -406,8 +408,9 @@ export default class DocFactory {
         case '@_method':   type = 'Method'; break;
         case '@_function': type = 'Function'; break;
         case '@_var':      type = 'Variable'; break;
-        case '@typedef':  type = 'Typedef'; break;
-        case '@external': type = 'External'; break;
+        case '@event':     type = 'Event'; break;
+        case '@typedef':   type = 'Typedef'; break;
+        case '@external':  type = 'External'; break;
       }
     }
 

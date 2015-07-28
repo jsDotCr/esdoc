@@ -37,6 +37,13 @@ describe('Identifiers:', ()=> {
   });
 
   /** @test {IdentifiersDocBuilder#_buildIdentifierDoc} */
+  it('has event summary.', ()=>{
+    find(doc, '[data-ice="eventSummary"]', (doc)=>{
+      assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public MyInlineEvent1: Object this is MyInlineEvent1 desc.');
+    });
+  });
+
+  /** @test {IdentifiersDocBuilder#_buildIdentifierDoc} */
   it('has typedef summary.', ()=>{
     find(doc, '[data-ice="typedefSummary"]', (doc)=>{
       assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public MyTypedef1: Object this is MyTypedef1 desc.');

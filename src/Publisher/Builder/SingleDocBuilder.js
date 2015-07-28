@@ -3,7 +3,7 @@ import DocBuilder from './DocBuilder.js';
 
 /**
  * Single output builder class.
- * "single" means function, variable, typedef, external, etc...
+ * "single" means function, variable, event, typedef, external, etc...
  */
 export default class SingleDocBuilder extends DocBuilder {
   /**
@@ -14,7 +14,7 @@ export default class SingleDocBuilder extends DocBuilder {
     let ice = this._buildLayoutDoc();
     ice.autoClose = false;
 
-    let kinds = ['function', 'variable', 'typedef'];
+    let kinds = ['function', 'variable', 'event', 'typedef'];
     for (let kind of kinds) {
       let docs = this._find({kind: kind});
       if (!docs.length) continue;
